@@ -28,7 +28,7 @@
                                     class="form-control @error('name') is-invalid @enderror"
                                     name="name"
                                     id="name"
-                                    value="{{$product->name,old('name')}}"
+                                    value="{{old('name',$product->name)}}"
                                     aria-describedby="helpId"
                                     placeholder="Name*"
                                 />
@@ -45,7 +45,7 @@
                                     class="form-control @error('qty') is-invalid @enderror"
                                     name="qty"
                                     id="qty"
-                                    value="{{$product->qty,old('qty')}}"
+                                    value="{{old('qty',$product->qty)}}"
                                     aria-describedby="helpId"
                                     placeholder="Quantity*"
                                 />
@@ -62,7 +62,7 @@
                                     class="form-control @error('price') is-invalid @enderror"
                                     name="price"
                                     id="price"
-                                    value="{{$product->price,old('price')}}"
+                                    value="{{old('price',$product->price)}}"
                                     aria-describedby="helpId"
                                     placeholder="Price*"
                                 />
@@ -158,7 +158,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="desc" class="form-label">Description*</label>
-                                <textarea class="form-control summernote @error('desc') is-invalid @enderror" name="desc" id="desc" rows="3">{{$product->desc,old('desc')}}</textarea>
+                                <textarea class="form-control summernote @error('desc') is-invalid @enderror" name="desc" id="desc" rows="3">{{old('desc',$product->desc)}}</textarea>
                                 @error('desc')
                                     <span class="invalid-feedback">
                                         <strong>{{ $message }}</strong>
