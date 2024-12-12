@@ -27,7 +27,7 @@
                                     class="form-control @error('name') is-invalid @enderror"
                                     name="name"
                                     id="name"
-                                    value="{{$coupon->name,old('name')}}"
+                                    value="{{old('name',$coupon->name)}}"
                                     aria-describedby="helpId"
                                     placeholder="Name*"
                                 />
@@ -44,7 +44,7 @@
                                     class="form-control @error('discount') is-invalid @enderror"
                                     name="discount"
                                     id="discount"
-                                    value="{{$coupon->discount,old('discount')}}"
+                                    value="{{old('discount',$coupon->discount)}}"
                                     aria-describedby="helpId"
                                     placeholder="Discount*"
                                 />
