@@ -82,7 +82,7 @@
                                     <option value="" selected disabled>Choose a category</option>
                                     @foreach ($categories as $category)
                                         <option value="{{$category->id}}"
-                                            @if($product->category_id == $category->id) selected @endif>
+                                            @if(old('category_id',$product->category_id) == $category->id) selected @endif>
                                             {{ $category->name }}
                                         </option>
                                     @endforeach
@@ -103,7 +103,7 @@
                                     <option value="" selected disabled>Choose a brand</option>
                                     @foreach ($brands as $brand)
                                         <option value="{{$brand->id}}"
-                                            @if($product->brand_id == $brand->id) selected @endif>
+                                            @if(old('brand_id',$product->brand_id) == $brand->id) selected @endif>
                                             {{ $brand->name }}
                                         </option>
                                     @endforeach
@@ -124,7 +124,7 @@
                                 >
                                     @foreach ($colors as $color)
                                         <option value="{{$color->id}}"
-                                            @if($product->colors->contains($color->id)) selected @endif>
+                                            @if(collect(old('color_id',$product->colors->pluck('id')))->contains($color->id)) selected @endif>
                                             {{ $color->name }}
                                         </option>
                                     @endforeach
@@ -145,7 +145,7 @@
                                 >
                                     @foreach ($sizes as $size)
                                         <option value="{{$size->id}}"
-                                            @if($product->sizes->contains($size->id)) selected @endif>
+                                            @if(collect(old('size_id',$product->sizes->pluck('id')))->contains($size->id)) selected @endif>
                                             {{ $size->name }}
                                         </option>
                                     @endforeach
