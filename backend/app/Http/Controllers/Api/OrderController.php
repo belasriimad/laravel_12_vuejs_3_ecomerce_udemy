@@ -53,7 +53,7 @@ class OrderController extends Controller
      */
     public function payOrdersByStripe(Request $request)
     {
-        Stripe::setApiKey("sk_test_51C19VNGin0JfRTbQecMjU5KIhd1KWa6cOKZuauheE2TPEYGzUvyRl6FUTkC2KD3YwVpXCNYewD7eVGspDcaKo6Vi00nfNCUGgR");
+        Stripe::setApiKey("YOUR STRIPE SECRET KEY HERE");
 
         try {
             $checkout_session = Session::create([

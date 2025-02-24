@@ -27,7 +27,7 @@
                                     class="form-control @error('name') is-invalid @enderror"
                                     name="name"
                                     id="name"
-                                    value="{{$brand->name,old('name')}}"
+                                    value="{{old('name',$brand->name)}}"
                                     aria-describedby="helpId"
                                     placeholder="Name*"
                                 />

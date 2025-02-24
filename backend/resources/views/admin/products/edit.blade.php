@@ -28,7 +28,7 @@
                                     class="form-control @error('name') is-invalid @enderror"
                                     name="name"
                                     id="name"
-                                    value="{{$product->name,old('name')}}"
+                                    value="{{old('name',$product->name)}}"
                                     aria-describedby="helpId"
                                     placeholder="Name*"
                                 />
@@ -45,7 +45,7 @@
                                     class="form-control @error('qty') is-invalid @enderror"
                                     name="qty"
                                     id="qty"
-                                    value="{{$product->qty,old('qty')}}"
+                                    value="{{old('qty',$product->qty)}}"
                                     aria-describedby="helpId"
                                     placeholder="Quantity*"
                                 />
@@ -62,7 +62,7 @@
                                     class="form-control @error('price') is-invalid @enderror"
                                     name="price"
                                     id="price"
-                                    value="{{$product->price,old('price')}}"
+                                    value="{{old('price',$product->price)}}"
                                     aria-describedby="helpId"
                                     placeholder="Price*"
                                 />
@@ -82,7 +82,8 @@
                                     <option value="" selected disabled>Choose a category</option>
                                     @foreach ($categories as $category)
                                         <option value="{{$category->id}}"
-                                            @if($product->category_id == $category->id) selected @endif>
+                                            {{-- old('category_id',$product->category_id) == $category->id) --}}
+                                            @if(old('category_id',$product->category_id) == $category->id) selected @endif>
                                             {{ $category->name }}
                                         </option>
                                     @endforeach
@@ -103,7 +104,8 @@
                                     <option value="" selected disabled>Choose a brand</option>
                                     @foreach ($brands as $brand)
                                         <option value="{{$brand->id}}"
-                                            @if($product->brand_id == $brand->id) selected @endif>
+                                            {{-- old('brand_id',$product->brand_id) == $brand->id) --}}
+                                            @if(old('brand_id',$product->brand_id) == $brand->id) selected @endif>
                                             {{ $brand->name }}
                                         </option>
                                     @endforeach
@@ -123,8 +125,9 @@
                                     multiple
                                 >
                                     @foreach ($colors as $color)
+                                        {{-- (collect(old('color_id',$product->colors->pluck('id')))->contains($color->id)) --}}
                                         <option value="{{$color->id}}"
-                                            @if($product->colors->contains($color->id)) selected @endif>
+                                            @if(collect(old('color_id',$product->colors->pluck('id')))->contains($color->id)) selected @endif>
                                             {{ $color->name }}
                                         </option>
                                     @endforeach
@@ -144,8 +147,9 @@
                                     multiple
                                 >
                                     @foreach ($sizes as $size)
+                                        {{-- (collect(old('size_id',$product->sizes->pluck('id')))->contains($size->id)) --}}
                                         <option value="{{$size->id}}"
-                                            @if($product->sizes->contains($size->id)) selected @endif>
+                                            @if(collect(old('size_id',$product->sizes->pluck('id')))->contains($size->id)) selected @endif>
                                             {{ $size->name }}
                                         </option>
                                     @endforeach
@@ -158,7 +162,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="desc" class="form-label">Description*</label>
-                                <textarea class="form-control summernote @error('desc') is-invalid @enderror" name="desc" id="desc" rows="3">{{$product->desc,old('desc')}}</textarea>
+                                <textarea class="form-control summernote @error('desc') is-invalid @enderror" name="desc" id="desc" rows="3">{{old('desc',$product->desc)}}</textarea>
                                 @error('desc')
                                     <span class="invalid-feedback">
                                         <strong>{{ $message }}</strong>
