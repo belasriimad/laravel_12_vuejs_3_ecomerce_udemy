@@ -24,7 +24,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Profile Image</th>
-                                    <th>Registred</th>
+                                    <th>Registered</th>
                                     <th></th>
                                 </tr>
                             </thead>
