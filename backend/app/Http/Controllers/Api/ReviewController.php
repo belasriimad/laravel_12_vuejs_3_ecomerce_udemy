@@ -16,9 +16,9 @@ class ReviewController extends Controller
         $review = $this->checkIfUserAlreadyReviewedTheProduct($request->product_id,$request->user()->id);
 
         if($review) {
-            return response()->json(([
+            return response()->json([
                 'error' => 'You have already reviewed this product.'
-            ]));
+            ]);
         }else {
             Review::create([
                 'product_id' => $request->product_id,
@@ -27,9 +27,9 @@ class ReviewController extends Controller
                 'body' => $request->body,
                 'rating' => $request->rating
             ]);
-            return response()->json(([
+            return response()->json([
                 'message' => 'Your review has been added and will be published soon.'
-            ]));
+            ]);
         }
     }
 
@@ -49,13 +49,13 @@ class ReviewController extends Controller
                 'rating' => $request->rating,
                 'approved' => 0
             ]);
-            return response()->json(([
+            return response()->json([
                 'message' => 'Your review has been updated and will be published soon.'
-            ]));
+            ]);
         }else {
-            return response()->json(([
+            return response()->json([
                 'error' => 'Something went wrong try again later.'
-            ]));
+            ]);
         }
     }
 
@@ -68,13 +68,13 @@ class ReviewController extends Controller
 
         if($review) {
             $review->delete();
-            return response()->json(([
+            return response()->json([
                 'message' => 'Your review has been deleted successfully.'
-            ]));
+            ]);
         }else {
-            return response()->json(([
+            return response()->json([
                 'error' => 'Something went wrong try again later.'
-            ]));
+            ]);
         }
     }
 
