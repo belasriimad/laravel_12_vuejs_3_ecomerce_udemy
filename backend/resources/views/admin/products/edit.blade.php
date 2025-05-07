@@ -82,7 +82,10 @@
                                     <option value="" selected disabled>Choose a category</option>
                                     @foreach ($categories as $category)
                                         <option value="{{$category->id}}"
+<<<<<<< HEAD
                                             {{-- old('category_id',$product->category_id) == $category->id) --}}
+=======
+>>>>>>> b3de5f9a8fabc690d4357dae4c6c240c84cf04fa
                                             @if(old('category_id',$product->category_id) == $category->id) selected @endif>
                                             {{ $category->name }}
                                         </option>
@@ -104,7 +107,10 @@
                                     <option value="" selected disabled>Choose a brand</option>
                                     @foreach ($brands as $brand)
                                         <option value="{{$brand->id}}"
+<<<<<<< HEAD
                                             {{-- old('brand_id',$product->brand_id) == $brand->id) --}}
+=======
+>>>>>>> b3de5f9a8fabc690d4357dae4c6c240c84cf04fa
                                             @if(old('brand_id',$product->brand_id) == $brand->id) selected @endif>
                                             {{ $brand->name }}
                                         </option>

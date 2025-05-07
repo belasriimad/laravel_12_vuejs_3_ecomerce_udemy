@@ -33,7 +33,7 @@
                         Submit
                     </button>
                 </div>
-                <ul class="list-group w-100 tet-center mt-2">
+                <ul class="list-group w-100 text-center mt-2">
                     <li class="list-group-item">
                         <i class="bi bi-person"></i> {{ authStore.user?.name }}
                     </li>
