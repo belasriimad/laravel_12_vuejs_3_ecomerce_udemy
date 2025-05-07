@@ -24,6 +24,11 @@ class UserController extends Controller
      */
     public function delete(User $user)
     {
+        //check if the profile image exists and remove it
+        if(File::exists(public_path($user->profile_image))) {
+            File::delete(public_path($user->profile_image));
+        }
+        
         $user->delete();
 
         return redirect()->route('admin.users.index')->with([
